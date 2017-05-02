@@ -1,0 +1,47 @@
+
+\mode<presentation>
+
+% how to do the blocks:
+% rounded and no shadows
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% Title page: simula
+\defbeamertemplate*{title page}{simula}[1][]
+{
+  \vbox{}
+  \vfill
+  \begin{centering}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \end{centering}
+  \vfill
+}
+
+
+% Part page
+\defbeamertemplate*{part page}{simula}[1][]
+{
+  \begin{centering}
+    {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{part title}
+      \usebeamerfont{part title}\insertpart\par
+    \end{beamercolorbox}
+  \end{centering}
+} 
