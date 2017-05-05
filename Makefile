@@ -1,5 +1,5 @@
 PROJECT=slides
-TEX=pdflatex
+TEX=latexmk -pvc
 BUILDTEX=$(TEX) $(PROJECT).tex
 
 all:
