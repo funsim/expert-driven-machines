@@ -48,6 +48,8 @@
 					</p>
 				</section>
 
+
+
 				<section>
 					<b>2016:</b> a machine beats the world's best human Go player
 					<!-- . works well with much data<br>but little understanding -->
@@ -56,14 +58,30 @@
 					<img width="550" data-src="media/alphago.jpg">
 					<!-- AlphaGo uses 30Million positions to train its AlphaGo model --> 
 				</section>
+				<section>
+					The key concept of machine learning
+					<br>
+					<img width="100%" class="plain"  data-src="media/how_it_works_ml.svg">
+					<br><small>Works best with lots of data</small>
+				</section>
+
+
 
 
 				<section>
 					<b>2012:</b> NASA et al releases world's highest resolution ocean and sea-ice simulation
 					<br>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/CCmTY0PKGDs" frameborder="0" allowfullscreen></iframe> 
+					<iframe width="800" height="460" src="https://www.youtube.com/embed/CCmTY0PKGDs" frameborder="0" allowfullscreen></iframe> 
 				</section>
 	
+
+
+				<section>
+					The key concept of model based simulation
+					<img width="100%" class="plain"  data-src="media/how_it_works_model.svg">
+					<br><small>Works best with good problem knowledge</small>
+				</section>
+
 				<section>
 					Machine learning 
 					<br>+ Model based simulation 
@@ -74,6 +92,50 @@
 					<!-- Most models are not complete -->
 					<!-- Examples: Sub-model Weather/Ocean/Earth modeling -->
 				</section>
+
+				<section>
+					Expert driven machine
+					<img width="100%" class="plain"  data-src="media/how_it_works_expert_driven_ml.svg">
+					<small>Application: Improving clinical decisions</small>
+				</section>
+
+				<section>
+					Machine driven expert
+					<img width="100%" class="plain"  data-src="media/how_it_works_ml_driven_expert.svg">
+					<small>Application: Physics selection</small>
+				</section>
+
+				<section>
+					Machine enhanced expert
+					<img width="100%" class="plain"  data-src="media/how_it_works_ml_enhanced_expert.svg">
+					<small>Application: Biomedical problems with unknown sub-physics</small>
+				</section>
+
+				<section>
+					Expert enhanced machine
+					<img width="100%" class="plain"  data-src="media/how_it_works_expert_enhanced_ml.svg">
+					<small>Application: "Physics-aware machines"</small>
+				</section>
+
+				<section>
+				    A common mathematical framework
+					<br><br>
+				    <b>Training step</b>
+				    <br><br>
+					Find the optimal solution $m^*$ of:
+					<br>
+					<script type="math/tex">
+						\min_{u, m} J(u, d) + R(m) \\\text{subject to} \\F(u; m) = 0 
+					</script>
+				</section>
+				<section>
+
+					<b>Prediction step</b><br>
+					<script type="math/tex">
+						F(u; m^*) = 0 
+					</script>
+				</section>
+
 
 				<section>
 					
@@ -93,41 +155,6 @@
 					<!-- Most models are not complete -->
 					<!-- Examples: Sub-model Weather/Ocean/Earth modeling -->
 				</section>
-
-
-
-
-				<section>
-					ML and simulation models are conceptually similar
-					<br>
-					<img width="500" class="plain"  data-src="media/how_it_works_ml.svg">
-				</section>
-
-
-				<section>
-					ML and simulation models are conceptually similar
-					<img width="500" class="plain"  data-src="media/how_it_works_model.svg">
-				</section>
-
-
-
-				<section>
-				    A common mathematical framework 
-				    <br>
-					<b>Training step</b><br>
-					Find the optimal solution $m^*$ of:
-					<br>
-					<script type="math/tex">
-						\min_{u, m} J(u, d, m) \\\text{subject to} \\F(u; m) = 0 
-					</script>
-					<br>
-					<br>
-					<b>Prediction step</b><br>
-					<script type="math/tex">
-						F(u; m^*) = 0 
-					</script>
-				</section>
-
 
 
 
