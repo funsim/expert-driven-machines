@@ -118,23 +118,62 @@
 				</section>
 
 				<section>
-				    A common mathematical framework
-					<br><br>
-				    <b>Training step</b>
-				    <br><br>
-					Find the optimal solution $m^*$ of:
-					<br>
-					<script type="math/tex">
-						\min_{u, m} J(u, d) + R(m) \\\text{subject to} \\F(u; m) = 0 
-					</script>
-				</section>
-				<section>
+					<section>
+					    A common mathematical framework
+					</section>
 
-					<b>Prediction step</b><br>
-					<script type="math/tex">
-						F(u; m^*) = 0 
-					</script>
+					<section>
+						The predictor function of a neural network<br>
+						<img widht="100%" class="plain" data-src="media/nn-3-layer-network.png">
+					</section>
+
+
+					<section>
+						The predictor function of a neural network<br>
+						<br>
+						<script type="math/tex">
+						\begin{aligned}
+						z_1 & = xW_1 + b_1 \\
+						a_1 & = \tanh(z_1) \\
+						z_2 & = a_1W_2 + b_2 \\
+						a_2 & = \hat{y} = \mathrm{softmax}(z_2)
+						\end{aligned}
+						</script>
+						<br>
+						<br>
+						<small>
+						$x$ is the input<br>
+						$z_1$, $a_1$, $z_2$, $a_2$ are intermediate values<br>
+						$y$ is the output<br>
+						$m=(W_1, b_1, W_2, b_2)$ are parameters</small>
+					</section>
+
+					<section>
+					    <b>Training step</b>
+					    <br><br>
+						Given training data $d_i, i=1..n$, find the parameters that satisfy
+						<br><br>
+						<script type="math/tex">
+							\min_{m} \sum_{i=1}^n L(y_i, d_i) + R(m) \\\text{subject to} \\F(x_i, y_i; m) = 0 \quad \forall i=1..n
+						</script>
+					</section>
+					<section>
+
+						<b>Prediction step</b><br>
+						<script type="math/tex">
+							F(x_i; m^*) = y_i
+						</script>
+					</section>
+
 				</section>
+
+				<section>
+				    An example: 
+				    <br>
+					<img width="20%" class="plain"  data-src="media/spring.png">
+					
+				</section>
+
 
 
 				<section>
