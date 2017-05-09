@@ -123,86 +123,127 @@
 					</section>
 
 					<section>
-						The predictor function of a neural network<br>
+						The predictor function of a simple neural network<br>
 						<img widht="100%" class="plain" data-src="media/nn-3-layer-network.png">
 					</section>
 
 
 					<section>
-						The predictor function of a neural network<br>
+						The <b>predictor function</b> of a simple neural network<br>
 						<br>
 						<script type="math/tex">
 						\begin{aligned}
 						z_1 & = xW_1 + b_1 \\
 						a_1 & = \tanh(z_1) \\
 						z_2 & = a_1W_2 + b_2 \\
-						a_2 & = \hat{y} = \mathrm{softmax}(z_2)
+						\hat{y} &= \mathrm{softmax}(z_2)
 						\end{aligned}
 						</script>
 						<br>
 						<br>
 						<small>
 						$x$ is the input<br>
-						$z_1$, $a_1$, $z_2$, $a_2$ are intermediate values<br>
-						$y$ is the output<br>
-						$m=(W_1, b_1, W_2, b_2)$ are parameters</small>
+						$z_1$, $a_1$, $z_2$ are intermediate values<br>
+						$\hat{y}$ is the output<br>
+						$m=(W_1, b_1, W_2, b_2)$ are parameters.
+						<br>
+						<br>
+						We can write the predictor in the general form $\mathcal N(x, \hat{y}; m) = 0$.
+						</small>
 					</section>
 
 					<section>
-					    <b>Training step</b>
-					    <br><br>
-						Given training data $d_i, i=1..n$, find the parameters that satisfy
+					    <b>Training</b> a neural network: Given training data $(x_i, y_i), i=1..n$ find parameters that satisfy
 						<br><br>
 						<script type="math/tex">
-							\min_{m} \sum_{i=1}^n L(y_i, d_i) + R(m) \\\text{subject to} \\F(x_i, y_i; m) = 0 \quad \forall i=1..n
+							\min_{m} \sum_{i=1}^n L(\hat{y}_i, y_i) + R(m) \\\text{subject to} \\
+							\mathcal N(x_i, \hat{y}_i; m) = 0 \quad \forall i=1..n
 						</script>
+						<br>
+						<br>
+						<small>
+						$L$ is a loss function<br>
+						$R$ is a regularization term<br>
+						<br>
+						</small>						
 					</section>
+
 					<section>
+						The <b>predictor function</b> of a simple spring model<br><br>
 
-						<b>Prediction step</b><br>
+						<img width="20%" class="plain" style="position:absolute; left:-200px; top:100px;" data-src="media/spring.png">
 						<script type="math/tex">
-							F(x_i; m^*) = y_i
+							 \frac{\mathrm{d}^2 x}{\mathrm{d}t^2} + 2D \frac{\mathrm{d} x}{\mathrm{d}t} + \omega^2 x = 0
 						</script>
+						<br><br>
+						<small>
+							$m = (\omega, D)$  are the parameters: angular frequency and damping factor<br>
+							$x$ is its displacement from the mean position<br>
+							$x(0) = 1$ and $x'(0) = -D$ are the initial conditions<br>
+						
+							<br>
+							An explicit solution for this model is:
+							<script type="math/tex">
+								x(t) = \exp(-Dt) \cos(\omega t) 
+							</script>
+							<br><br>
+							We can write the predictor in the general form $\mathcal S(x; m) = 0$.
+						</small>
 					</section>
 
+					<section>
+					    <b>Tuning</b> the spring model: Given observations $(t_i, x_i), i=1..n$ find parameters that satisfy
+						<br><br>
+						<script type="math/tex">
+							\min_{m} \sum_{i=1}^n L(\hat{x}_i, x_i) + R(m) \\\text{subject to} \\
+							\mathcal S(t_i, \hat{x}_i; m) = 0 \quad \forall i=1..n
+						</script>
+						<br>
+						<br>
+						<small>
+						$L$ is a loss function<br>
+						$R$ is a regularization term<br>
+						<br>
+						</small>						
+						<!-- Summary</b><br>Both ML and model based simulation have a common mathematical formulation -->
+					</section>
+
+					<section>
+					    <b>Expert driven machine</b>
+						<br>
+						<img width="50%" class="plain"  data-src="media/how_it_works_expert_driven_ml.svg">
+						<br>
+						Given observations $(t_i, y_i), i=1..n$ find parameters that satisfy<br>
+						<script type="math/tex">
+							\min_{m_{\mathcal N}, m_{\mathcal S}} \sum_{i=1}^n L(\hat{y}_i, y_i) + R(m_{\mathcal N}, m_{\mathcal S}) \\\text{subject to} \\
+							\mathcal N(t_i, \mathcal S(t_i, \hat{x}_i; m_{\mathcal S}), \hat{y}_i; m_{\mathcal N}) = 0 \quad \forall i=1..n
+						</script>
 				</section>
 
 				<section>
-				    An example: 
-				    <br>
-					<img width="20%" class="plain"  data-src="media/spring.png">
-					
+					    <b>Machine driven expert</b>
+						<br>
+						<img width="50%" class="plain"  data-src="media/how_it_works_ml_driven_expert.svg">
+						<br>
+						Given observations $(t_i, x_i), i=1..n$ find parameters that satisfy<br>
+						<script type="math/tex">
+							\min_{m_{\mathcal S}, m_{\mathcal N}} \sum_{i=1}^n L(\hat{x}_i, x_i) + R(m_{\mathcal S}, m_{\mathcal N}) \\\text{subject to} \\
+							\mathcal S(t_i, \mathcal N(t_i, \hat{y}_i; m_{\mathcal N}), \hat{x}_i; m_{\mathcal S}) = 0 \quad \forall i=1..n
+						</script>
 				</section>
-
-
 
 				<section>
-					
-					<table style="width:100%">
-					  <tr>
-					    <td><img width="200" class="plain"  data-src="media/how_it_works_ml_enhanced_expert.svg"></td>
-					    <td><img width="200" class="plain"  data-src="media/how_it_works_ml_driven_expert.svg"></td> 
-					  </tr>
-					  <tr>
-					    <td><img width="200" class="plain"  data-src="media/how_it_works_expert_driven_ml.svg"></td>
-					    <td></td> 
-					  </tr>
-					</table>
-
-					<!-- More sensor data  -> model based simulation too restrictive -->
-					<!-- Machine learning does not generalize well -->
-					<!-- Most models are not complete -->
-					<!-- Examples: Sub-model Weather/Ocean/Earth modeling -->
-				</section>
-
-
-
-
-				<section>
-					
-					<br>
-
-				</section>
+					    <b>Solving the minimization problem needs two key ingredients</b>
+						<br>
+						<small>1. Gradient-based optimization</small>
+						<br>
+						<img width="25%" class="plain"  data-src="media/Gradient_descent.svg">
+						<br>
+						<small>2. Computing derivatives via the adjoint approach</small>
+						<br>
+						<img width="25%" class="plain"  data-src="media/visual_adjoints.jpg">
+						<br>
+				</section>				
 
 			</div>
 
