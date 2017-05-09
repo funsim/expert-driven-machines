@@ -155,10 +155,12 @@
 					<section>
 					    <b>Training</b> a neural network: Given training data $(x_i, y_i), i=1..n$ find parameters that satisfy
 						<br><br>
+						<small>
 						<script type="math/tex">
 							\min_{m} \sum_{i=1}^n L(\hat{y}_i, y_i) + R(m) \\\text{subject to} \\
 							\mathcal N(x_i, \hat{y}_i; m) = 0 \quad \forall i=1..n
 						</script>
+						</small>
 						<br>
 						<br>
 						<small>
@@ -199,10 +201,12 @@
 					<section>
 					    <b>Tuning</b> the spring model: Given observations $(t_i, x_i), i=1..n$ find parameters that satisfy
 						<br><br>
+						<small>
 						<script type="math/tex">
 							\min_{m} \sum_{i=1}^n L(\hat{x}_i, x_i) + R(m) \\\text{subject to} \\
 							\mathcal S(t_i, \hat{x}_i; m) = 0 \quad \forall i=1..n
 						</script>
+						</small>
 						<br>
 						<br>
 						<small>
@@ -214,27 +218,33 @@
 					</section>
 
 					<section>
-					    <b>Expert driven machine</b>
+					    Training a <b>Expert driven machine</b>
 						<br>
 						<img width="50%" class="plain"  data-src="media/how_it_works_expert_driven_ml.svg">
 						<br>
+						<small>
 						Given observations $(t_i, y_i), i=1..n$ find parameters that satisfy<br>
+						<br>
 						<script type="math/tex">
 							\min_{m_{\mathcal N}, m_{\mathcal S}} \sum_{i=1}^n L(\hat{y}_i, y_i) + R(m_{\mathcal N}, m_{\mathcal S}) \\\text{subject to} \\
 							\mathcal N(t_i, \mathcal S(t_i, \hat{x}_i; m_{\mathcal S}), \hat{y}_i; m_{\mathcal N}) = 0 \quad \forall i=1..n
 						</script>
+						</small>
 				</section>
 
 				<section>
-					    <b>Machine driven expert</b>
+					    Training a <b>Machine driven expert</b>
 						<br>
 						<img width="50%" class="plain"  data-src="media/how_it_works_ml_driven_expert.svg">
 						<br>
+						<small>
 						Given observations $(t_i, x_i), i=1..n$ find parameters that satisfy<br>
+						<br>
 						<script type="math/tex">
 							\min_{m_{\mathcal S}, m_{\mathcal N}} \sum_{i=1}^n L(\hat{x}_i, x_i) + R(m_{\mathcal S}, m_{\mathcal N}) \\\text{subject to} \\
 							\mathcal S(t_i, \mathcal N(t_i, \hat{y}_i; m_{\mathcal N}), \hat{x}_i; m_{\mathcal S}) = 0 \quad \forall i=1..n
 						</script>
+						</small>
 				</section>
 
 				<section>
