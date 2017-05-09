@@ -233,17 +233,37 @@
 				</section>
 
 				<section>
-					    <b>Solving the minimization problem needs two key ingredients</b>
+					    <b>Solving the minimization problem needs:<br>1) Gradient-based optimization</b>
 						<br>
-						<small>1. Gradient-based optimization</small>
-						<br>
-						<img width="25%" class="plain"  data-src="media/Gradient_descent.svg">
-						<br>
-						<small>2. Computing derivatives via the adjoint approach</small>
-						<br>
-						<img width="25%" class="plain"  data-src="media/visual_adjoints.jpg">
-						<br>
+						<img width="50%" class="plain"  data-src="media/Gradient_descent.svg">
 				</section>				
+
+				<section>
+					    <b>Solving the minimization problem needs:
+						<br>
+						2. derivatives via the adjoint approach</b>
+						<br><br>
+						<small>
+						Example:
+						<script type="math/tex">
+							\min j^T y \\ 
+							\text{ subject to: } \\
+							Ay = Bm
+						</script>						
+						<br>
+						<br>
+						The total derivative of $j^T y$ with respect to $m$ has the form:
+						<img width="50%" class="plain"  data-src="media/visual_adjoint.jpg">
+						<br>
+						The adjoint approach solves $j^T A^{-1}$ first, making the computationally expense practically independent of the number of parameters.
+						</small>
+				</section>	
+			</section>
+
+			<section>
+				    <b>An example</b>
+			</section>	
+
 
 			</div>
 
